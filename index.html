@@ -24,8 +24,7 @@
         <button class="tab-btn" onclick="filterCategory('health')">YOUNG身 (健康飲)</button>
     </nav>
 
-    <main id="menu-container">
-        </main>
+    <main id="menu-container"></main>
 
     <div id="item-modal" class="modal">
         <div class="modal-content">
@@ -53,6 +52,13 @@
                 </div>
             </div>
 
+            <div class="option-group">
+                <h3>加料 (可複選)</h3>
+                <p style="font-size: 0.8rem; color: #888; margin-bottom: 8px;">單選 +$20，任選三種 +$50</p>
+                <div class="options toppings" id="topping-options">
+                    </div>
+            </div>
+
             <div class="qty-control">
                 <button onclick="updateQty(-1)">-</button>
                 <span id="modal-qty">1</span>
@@ -71,7 +77,7 @@
         <div id="cart-items"></div>
         <div class="drawer-footer">
             <div class="total-price">總計: $<span id="total-amount">0</span></div>
-            <button class="checkout-btn" onclick="submitOrder()">送出訂單</button>
+            <button class="checkout-btn" onclick="submitOrder()">送出訂單並傳送 Line</button>
         </div>
     </div>
 
@@ -80,7 +86,7 @@
             <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 3rem;"></i>
             <h2>訂單已送出</h2>
             <p>您的訂單編號為：<br><strong id="order-id" style="font-size: 1.5rem;"></strong></p>
-            <p>請至櫃檯出示此畫面並結帳。</p>
+            <p>請確認 Line 已成功傳送訂單文字。</p>
             <button class="add-to-cart-btn" onclick="location.reload()">再點一餐</button>
         </div>
     </div>
