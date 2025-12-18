@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>YOUNG ROCK YOUR BODY</title>
+    <title>YOUNG ROCK YOUR BODY | 點餐系統</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -24,12 +24,13 @@
         <button class="tab-btn" onclick="filterCategory('health')">YOUNG身 (健康飲)</button>
     </nav>
 
-    <main id="menu-container"></main>
+    <main id="menu-container">
+        </main>
 
     <div id="item-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modal-title"></h2>
+            <h2 id="modal-title">飲料名稱</h2>
             <p id="modal-ingredients" class="ingredients"></p>
             
             <div class="option-group">
@@ -52,11 +53,6 @@
                 </div>
             </div>
 
-            <div class="option-group">
-                <h3>加料 (+$20, 三種+$50)</h3>
-                <div class="options toppings" id="topping-options"></div>
-            </div>
-
             <div class="qty-control">
                 <button onclick="updateQty(-1)">-</button>
                 <span id="modal-qty">1</span>
@@ -68,11 +64,14 @@
     </div>
 
     <div id="cart-drawer" class="drawer">
-        <div class="drawer-header"><h2>我的購物車</h2><button onclick="toggleCart()">關閉</button></div>
+        <div class="drawer-header">
+            <h2>我的購物車</h2>
+            <button onclick="toggleCart()">關閉</button>
+        </div>
         <div id="cart-items"></div>
         <div class="drawer-footer">
             <div class="total-price">總計: $<span id="total-amount">0</span></div>
-            <button class="checkout-btn" onclick="submitOrder()">送出訂單並傳送 Line</button>
+            <button class="checkout-btn" onclick="submitOrder()">送出訂單</button>
         </div>
     </div>
 
@@ -80,7 +79,8 @@
         <div class="modal-content">
             <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 3rem;"></i>
             <h2>訂單已送出</h2>
-            <p>單號：<strong id="order-id"></strong></p>
+            <p>您的訂單編號為：<br><strong id="order-id" style="font-size: 1.5rem;"></strong></p>
+            <p>請至櫃檯出示此畫面並結帳。</p>
             <button class="add-to-cart-btn" onclick="location.reload()">再點一餐</button>
         </div>
     </div>
