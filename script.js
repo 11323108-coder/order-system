@@ -191,3 +191,21 @@ function submitOrder() {
 }
 
 renderMenu();
+function openModal(id) {
+    currentItem = menuData.find(i => i.id === id);
+    selections = { sugar: '', ice: '', qty: 1, toppings: [] }; // 重設選擇
+    
+    document.getElementById('modal-title').innerText = currentItem.name;
+    document.getElementById('modal-ingredients').innerText = currentItem.ingredients;
+    
+    // 這行代碼會去找 index.html 裡的 topping-options 並填入按鈕
+    const toppingContainer = document.getElementById('topping-options');
+    if(toppingContainer) {
+        toppingContainer.innerHTML = toppingsList.map(t => 
+            `<button class="opt-btn" onclick="toggleTopping('${t}')">${t}</button>`
+        ).join('');
+    }
+
+    updateModalPrice();
+    document.getElementById('item-modal').style.display = 'block';
+}
